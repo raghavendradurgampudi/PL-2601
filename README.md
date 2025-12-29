@@ -15,6 +15,7 @@
 ## 📚 Course Overview
 
 This program takes you through the complete **DevOps lifecycle**, combining concepts with **real-world tools, automation, and projects**.  
+This repository contains resources, notes, and project materials for the DevOps course covering essential tools and practices for modern software development and operations.
 By the end, you will be confident working with CI/CD, containers, orchestration, IaC, monitoring, and more.
 
 ---
