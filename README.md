@@ -15,7 +15,6 @@
 ## 📚 Course Overview
 
 This program takes you through the complete **DevOps lifecycle**, combining concepts with **real-world tools, automation, and projects**.  
-This repository contains resources, notes, and project materials for the DevOps course covering essential tools and practices for modern software development and operations.
 By the end, you will be confident working with CI/CD, containers, orchestration, IaC, monitoring, and more.
 
 ---
@@ -48,36 +47,38 @@ By the end, you will be confident working with CI/CD, containers, orchestration,
 
 - 🧰 DevOps Culture & Principles  
 - 🐧 Linux Administration  
-- 🧭 Git & GitHub (Version Control & Collaboration)  
-- 🏗️ Maven – Build & Dependency Management  
+- 🧭 Git & GitHub  
+- 🏗️ Maven  
 - ⚙️ Jenkins – CI/CD Pipelines  
 - 🐳 Docker – Containerization  
 - ☸️ Kubernetes – Orchestration  
-- 🎯 ArgoCD – GitOps Workflow  
+- 🎯 ArgoCD – GitOps  
 - 📦 Nexus – Artifact Repository  
-- 🧪 SonarQube – Code Quality & Coverage  
+- 🧪 SonarQube – Code Quality  
 - 🤖 Ansible – Configuration Management  
 - 🌍 Terraform – Infrastructure as Code  
-- 📊 Monitoring & Observability Tools  
+- 📊 Monitoring & Observability  
 
 ---
 
 ## 🏁 Capstone Projects (Hands-On)
 
-✔️ Real-time industry use-cases  
-✔️ End-to-end CI/CD implementation  
-✔️ Cloud, containers, monitoring stack  
-✔️ Resume & interview-ready portfolio projects  
+✔️ Real-world industry use-cases  
+✔️ End-to-end CI/CD pipelines  
+✔️ Cloud + Containers + Monitoring stack  
+✔️ Portfolio & resume-ready projects  
 
 ---
 
 ## 🤝 Connect With Me
 
-<p>
-🔗 <b>LinkedIn:</b> https://www.linkedin.com/in/kastro-kiran/
-</p>
+- 🔗 **LinkedIn:** https://www.linkedin.com/in/kastro-kiran/  
+- ▶️ **YouTube:** https://www.youtube.com/@LearnWithKASTRO  
+- 🌐 **Website:** https://www.learnwithkastro.com  
 
-💬 Feel free to connect for **guidance, collaboration, mentorship, or opportunities**.
+<p>
+📬 Feel free to connect for <b>guidance, collaboration, mentorship, or opportunities</b>.
+</p>
 
 ---
 
