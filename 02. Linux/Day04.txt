@@ -1,0 +1,168 @@
+Module 2: Linux Fundamentals | Day 04 | 06-01-2025
+============================================================================================================
+ALIAS
+alias w="whoami"
+
+Setting the hostname for a server
+    4  hostname
+    5  hostname -i
+    6  hostnamectl set-hostname linux-server
+    7  sudo hostnamectl set-hostname linux-server
+    8  sudo -i
+
+Creation of directories in Linux
+Directory is nothing but a folder
+mkdir kastro
+mkdir dir1 dir2 dir3 dir4
+ls
+mkdir -v Linux
+mkdir -v linux1 linx2
+mkdir "kastro kiran"
+cd dir1
+cd ..
+cd ../..
+
+Absolute Path	- it means we should the complete path in a single command
+Relative Path		- it mean we need to go inside one specific directory
+
+cd -
+cd ~
+
+ls dir1
+
+sudo yum install tree -y
+tree
+tree dir1
+
+Nested or Child directories
+mkdir -p dir5/dir5.1/dir5.2/dir5.3/dir5.4
+
+ls -l
+ls -lr
+ll
+
+If the starting character is "d" then it is a directory
+ls -ltr
+ls -lt
+
+ls dir5
+ll dir5
+ls -l dir5
+
+To see hidden files and directories
+ls -a
+ls -al
+
+rmdir <dir-name> ---> to delete empty directory
+rm -rf dir5 ---> it will delete all the child directories and the parent directory
+
+rm -rf * ---> to delete everything available in the current location
+
+Creation of files in Linux
+1. touch
+2. cat
+3. vi (or) vim
+4. nano
+5. echo
+
+touch kastro.txt
+touch kiran.txt kk.txt linux.txt day3.txt
+
+touch linux{1..10}.py
+
+If the starting character is "-" then it is a file
+
+rm kiran.txt
+rm kastro.txt kk.txt linux.txt
+
+rm *.py
+rm kastro*
+
+cat > kiran.txt
+cat kiran.txt
+tac linux.py
+
+cat >> kastro.txt
+
+cat -n kastro.txt
+
+vi is an file editor in Linux 
+: wq ---> save and quit from the file
+:q! ---> force quit (without saving)
+
+^ (control)
+
+nano linux.py
+
+echo "we are working with file creation" > kiran.txt
+echo "we are working with file creation" >> kiran.txt
+
+cat *.txt
+
+MORE and LESS commands
+more *.txt
+
+less *.txt
+:n ---> next file content 
+:p ---> previous file content
+q ---> quit from the file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
