@@ -1,48 +1,67 @@
-# 📚 DevOps Course Tracker
+# 🚀 DevOps Mastery Journey
 
-![Progress](https://img.shields.io/badge/Progress-7%2F35%20Days-blue)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
-![Focus](https://img.shields.io/badge/Focus-DevOps%20%7C%20Linux%20%7C%20Git%20%7C%20Maven%20%7C%20Tomcat%20%7C%20Jenkins%20%7C%20Nexus%20%7C%20SonarQube%20%7C%20Docker%20%7C%20Kubernetes%20%7C%20Ansible%20%7C%20Terraform%20%7C%20Monitoring%20%7C%20CapstoneProjects-green)
+![Course Progress](https://img.shields.io/badge/Progress-20%25-blueviolet?style=for-the-badge)
+![Learning Status](https://img.shields.io/badge/Status-Active%20Learning-success?style=for-the-badge)
+![Last Updated](https://img.shields.io/badge/Updated-9%20Jan%202026-informational?style=for-the-badge)
 
-This repository documents my **35-day DevOps learning journey**, covering theory, hands-on labs, and real-world DevOps practices. It serves as a structured reference for revision, practice, and portfolio building.
+## 🎯 Learning Path Overview
+A comprehensive 35-day DevOps training program covering essential tools and practices for modern software delivery.
 
----
-
-## 🚀 Course Overview
-The course is designed to build strong foundations in **Linux, Git & GitHub, CI/CD, containers, cloud, and DevOps tooling**. Each session includes conceptual understanding, command-line practice, and use-case-based learning.
-
----
-
-## 🔧 DevOps Fundamentals
-> Understanding the DevOps lifecycle, software delivery models, and CI/CD concepts.
-
-| Date       | Module Name     | Topics Covered |
-|------------|-----------------|----------------|
-| 30-12-2025 | DevOps Overview | Course overview, Introduction to projects, SDLC phases, Waterfall & Agile models, CI/CD overview |
+### 📊 Skills Track
+| **Core DevOps** | **Infrastructure** | **CI/CD Pipeline** | **Monitoring** |
+|-----------------|-------------------|-------------------|----------------|
+| • Linux Fundamentals | • Docker | • Jenkins | • Prometheus |
+| • Git & GitHub | • Kubernetes | • Maven | • Grafana |
+| • Ansible | • Terraform | • SonarQube | • ELK Stack |
+| • CI/CD Concepts | • Cloud Basics | • Nexus | • Alerting |
 
 ---
 
-## 🐧 Linux Modules
-> Core operating system concepts and command-line skills essential for DevOps engineers.
+## 📅 Learning Progress
 
-| Date       | Module Name             | Topics Covered |
-|------------|-------------------------|----------------|
-| 31-12-2025 | Linux – Part 1          | OS basics, Types of OS, Windows vs Linux, Linux Architecture, Launching a VM, Basic Linux commands (`date`, `cal`, `pwd`, `whoami`, `root user`) |
-| 05-01-2026 | Linux – Part 1 (Repeat) | OS basics, Types of OS, Windows vs Linux, Linux Architecture, Launching a VM, Basic Linux commands |
-| 06-01-2026 | Linux – Part 2          | File & directory creation/deletion, Listing files, Printing line numbers, `more`, `less` |
-| 08-01-2026 | Linux – Part 3          | `sort`, `cp`, `mv`, `head`, `tail`, `vi` editor commands, File/Directory sizes, `grep` |
-| 09-01-2026 | Linux – Part 4          | *(To be updated)* |
+### **Phase 1: Foundations** _(Completed: 3/5 Days)_
+| Date | Module | Topics Covered | Status |
+|------|--------|----------------|--------|
+| **30 Dec 2025** | DevOps Fundamentals | SDLC phases, Waterfall vs Agile, CI/CD concepts, DevOps lifecycle | ✅ Completed |
+| **31 Dec 2025** | Linux – Part 1 | OS architecture, VM setup, basic commands (`date`, `cal`, `pwd`, `whoami`) | ✅ Completed |
+| **06 Jan 2026** | Linux – Part 2 | File operations, directory management, `more`/`less`, line numbering | ✅ Completed |
+| **08 Jan 2026** | Linux – Part 3 | `sort`, `cp`, `mv`, `grep`, `vi` editor, file utilities | ✅ Completed |
+
+### **Phase 2: Core Tools** _(In Progress)_
+| Date | Module | Topics Covered | Status |
+|------|--------|----------------|--------|
+| **09 Jan 2026** | Linux – Part 4 | Advanced commands, permissions, process management | 🔄 Today |
+| **12 Jan 2026** | Git & GitHub – Part 1 | Version control basics, repository management | 📅 Upcoming |
+| **13 Jan 2026** | Git & GitHub – Part 2 | Branching strategies, collaboration workflows | 📅 Upcoming |
+| **15 Jan 2026** | Git & GitHub – Part 3 | Advanced Git operations, conflict resolution | 📅 Upcoming |
+
+### **Phase 3: Build & Deploy** _(Scheduled)_
+| Module | Tools Covered | Focus Areas |
+|--------|---------------|-------------|
+| Build Automation | Maven, Gradle | Dependency management, build lifecycle |
+| Web Servers | Tomcat, Nginx | Deployment, configuration, optimization |
+| CI/CD Pipeline | Jenkins | Pipeline as code, automation, integration |
+| Code Quality | SonarQube | Static analysis, code smells, security |
+
+### **Phase 4: Containerization & Orchestration** _(Scheduled)_
+| Module | Tools Covered | Focus Areas |
+|--------|---------------|-------------|
+| Containerization | Docker | Images, containers, Dockerfile, networking |
+| Orchestration | Kubernetes | Pods, services, deployments, scaling |
+| Infrastructure | Ansible, Terraform | Configuration management, IaC, provisioning |
+
+### **Phase 5: Monitoring & Capstone** _(Scheduled)_
+| Module | Tools Covered | Focus Areas |
+|--------|---------------|-------------|
+| Monitoring | Prometheus, Grafana | Metrics, visualization, alerting |
+| Logging | ELK Stack | Log aggregation, analysis, troubleshooting |
+| Projects | Real-world scenarios | End-to-end DevOps implementation |
 
 ---
 
-## 🌱 Git & GitHub Modules
-> Version control, collaboration workflows, and repository management.
-
-| Date       | Module Name           | Topics Covered |
-|------------|-----------------------|----------------|
-| 12-01-2026 | Git & GitHub – Part 1 | *(To be updated)* |
-| 13-01-2026 | Git & GitHub – Part 2 | *(To be updated)* |
-| 15-01-2026 | Git & GitHub – Part 3 | *(To be updated)* |
-| 16-01-2026 | Git & GitHub – Part 4 | *(To be updated)* |
-
----
+## 📈 Progress Metrics
+```bash
+Days Completed: 7/35 (20%)
+Modules Covered: 4/20
+Tools to Master: 15+
+Projects: 5 Capstone Projects
