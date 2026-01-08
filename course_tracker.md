@@ -1,6 +1,6 @@
 # 📚 DevOps Course Tracker
 
-![Progress](https://img.shields.io/badge/Progress-8%2F35%20Days-blue)
+![Progress](https://img.shields.io/badge/Progress-7%2F35%20Days-blue)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 ![Focus](https://img.shields.io/badge/Focus-DevOps%20%7C%20Linux%20%7C%20Git-green)
 
