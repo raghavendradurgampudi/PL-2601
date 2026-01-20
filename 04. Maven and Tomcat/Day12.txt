@@ -1,0 +1,159 @@
+Module 3: Maven & Tomcat | Day 12 | 20-01-2025
+============================================================================================================
+Manual Deployment of Application in Tomcat
+==================================
+Install Java
+Install and Setup Tomcat
+
+Edit the 'context.xml' file as below in manager and host-manager directories ---->
+<Context antiResourceLocking="false" privileged="true">
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="^.*$" />
+</Context>
+
+Edit the 'tomcat-users.xml' file as below ---->
+  <role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui"/>
+  <user username="admin" password="admin" roles="manager-gui,admin-gui"/>
+
+Repo URL: https://github.com/KastroVKiran/tomcat-app-kastro.git
+
+Version 1 ----> LIVE
+Version 2 ----> Update the app ----> Compile & Package (Manual processs) ----> Deploy to Tomcat (Manual process)
+
+To automate the application deployment (Packaging and Deployment), we need to use CI & CD tools
+	CI & CD Tools - Jenkins, GitHub Actions, GitLab, AWS Code Pipeline, Azure DevOps (Azure Pipelines)....
+
+
+
+Module 4: Jenkins, Nexus & SonarQube | Day 12 | 20-01-2025
+============================================================================================================
+CI & CD - It is the process of automating the build and deployment of applications
+
+CI - Continuous Integration
+		Developer ----> Write the code (V1) ----> Test the code (V1) ----> Approval ----> Build the code ----> GitHub Repo
+		Developer ----> Update the code (V2) ----> Test the code (V2) ----> Approval ----> Build the code ----> GitHub Repo
+		Developer ----> Update the code (V3) ----> Test the code (V3) ----> Approval ----> Build the code ----> GitHub Repo
+CI is combination of Continuous Testing (CT) and Continuous Building (CB)
+
+CD - Continuous Delivery
+	If you are manually deploying the application into the server that process is known as Continuous Delivery
+
+CD - Continuous Deployment
+	The process of automating the application deployment is known as Continuous Deployment
+
+To automate the application deployment process, we will use CI&CD tools
+
+CD & CD Tools: Jenkins, GitHub Action, GitLab, AWS Code Pipeline, Azure Pipelines....
+
+Stages available in the CI & CD process;
+Git Checkout			- get the code from GitHub repo
+Build the code			- generate the artifacts (using build tools such as maven)
+Store the artifact			- for roll back purposes we need to store the artifact (Nexus, JFrog, S3 Bucket...)
+Security scanning		- SonarQube is used to perform the code quality analysis
+Deep level scanning		- Trivy, Owasp, Docker scout image analysis... (Image Scanning)
+Deploy the artifact		- Tomcat/Docker/Kubernetes Cluster
+
+JENKINS
+Jenkins is a CI & CD tool that automates the build and deployment of application
+Jenkins is developed by using Java
+If you want to work with Jenkins, we need to install Java (17/21/24)
+Jenkins will run on port number 8080
+2011 - Hudson Project (Not free)
+Sun Micro Systems acquired Hudson Project and they renamed to Jenkins (Free and Open Source)
+
+Installation of Jenkins
+------------------------------------------
+https://www.jenkins.io/doc/book/installing/linux/
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+# Add required dependencies for the jenkins package
+    sudo dnf install java-17-amazon-corretto -y
+sudo yum install jenkins
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+
+Jenkins Jobs
+A job is nothing but a task
+Using Jenkins we will create Jobs (Jenkins Jobs)
+
+Types of Jenkins jobs;
+1. Freestyle Project			- if you configure the job information using the UI of Jenkins, such kind of jobs are known as freestyle projects
+2. Pipeline					- if you configure the job information using script, such kind of jobs are known as Pipelines
+3. Multi-branch Pipeline		- if you configure the job information using script, such kind of jobs are known as Pipelines
+
+Understanding Freestyle Projects;
+In freestyle projects we have 6 configuration options;
+General					- name and description for the job
+SCM					- we will configure out repo url
+Triggers					- we will define how the job has to be built
+Environment			- we will specify environment variables for the job
+Build Steps				- we will specify how to build the code
+Post Build Actions		- we will specify where to do the deployment
+
+All the job information will be stored in the Jenkins home directory  ----> /var/lib/jenkins
+
+Create a Shell File (/tmp)
+write the commands to install nginx/httpd (or apache2) (All commands must start with sudo)
+Run the job
+
+Throttle Build;
+If i want to restrict the number of builds to happen in a specific time, we will use Throttle Build
+
+60 - 5
+
+Upstream and Downstream Jobs (Build after other projects are built);
+Job1	- manually build	- success
+Job2	- automatically triggered - success
+Job3	- automatically triggered
+
+microservices app;
+Job 1 - movies
+Job 2 - sports
+Job 3 - documentaries
+
+Note: All the jobs must be built atleast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
