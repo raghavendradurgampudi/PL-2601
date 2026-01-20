@@ -1,32 +1,3 @@
-Module 3: Maven & Tomcat | Day 12 | 20-01-2025
-============================================================================================================
-Manual Deployment of Application in Tomcat
-==================================
-Install Java
-Install and Setup Tomcat
-
-Edit the 'context.xml' file as below in manager and host-manager directories ---->
-<Context antiResourceLocking="false" privileged="true">
-  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="^.*$" />
-</Context>
-
-Edit the 'tomcat-users.xml' file as below ---->
-  <role rolename="manager-gui"/>
-  <role rolename="admin-gui"/>
-  <user username="tomcat" password="tomcat" roles="manager-gui"/>
-  <user username="admin" password="admin" roles="manager-gui,admin-gui"/>
-
-Repo URL: https://github.com/KastroVKiran/tomcat-app-kastro.git
-
-Version 1 ----> LIVE
-Version 2 ----> Update the app ----> Compile & Package (Manual processs) ----> Deploy to Tomcat (Manual process)
-
-To automate the application deployment (Packaging and Deployment), we need to use CI & CD tools
-	CI & CD Tools - Jenkins, GitHub Actions, GitLab, AWS Code Pipeline, Azure DevOps (Azure Pipelines)....
-
-
-
 Module 4: Jenkins, Nexus & SonarQube | Day 12 | 20-01-2025
 ============================================================================================================
 CI & CD - It is the process of automating the build and deployment of applications
@@ -120,6 +91,7 @@ Job 2 - sports
 Job 3 - documentaries
 
 Note: All the jobs must be built atleast
+
 
 
 
