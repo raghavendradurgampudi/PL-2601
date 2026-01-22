@@ -46,4 +46,5 @@ A comprehensive 35-day DevOps training program covering essential tools and prac
 | Date | Module | Topics Covered | Status |
 |------|--------|----------------|--------|
 | **20 Jan 2026** | Jenkins | Introduction to CI&CD, Jenkins, Jobs and Types, Understanding Freestyle Projects - Job Creation, Configuration, Integration of Public GitHub repo, Upstream & Downstream, Throttle Builds  | ✅ Completed |
-| **22 Jan 2026** | Jenkins | Yet to discuss | ⏳ Pending |
+| **22 Jan 2026** | Jenkins | Build Triggers, Parameterized Jobs, Freestyle Project 1 (CI &C CD), Integrating Private Repo, Storing Artifacts in S3 Bucket | ✅ Completed |
+| **23 Jan 2026** | Jenkins | Yet to discuss | ⏳ Pending |
