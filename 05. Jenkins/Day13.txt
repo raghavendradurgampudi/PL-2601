@@ -1,0 +1,112 @@
+Module 4: Jenkins | Day 13 | 22-01-2025
+============================================================================================================
+Installation of Jenkins
+------------------------------------------
+https://www.jenkins.io/doc/book/installing/linux/
+
+sudo dnf install -y java-21-amazon-corretto-devel
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+sudo yum install jenkins
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+=> Freestyle Project - Parameterized Jobs
+Parameters are used to pass the variables in the form of key-value pairs during the job build process
+
+Types of parameters;
+String Parameter
+Choice Parameter
+
+String - string is a group of characters
+
+Branches -----> Select a particular branch
+movies				- movies branch
+sports				- sports branch
+documentaries		- documentaries branch
+
+Choice - it will help you to select a particular option from the list of choices
+
+feature
+
+=> Discard old builds
+To store the build info for specific period of time we will use "Discard old builds" option
+This option allows to effectively utilize the underlying storage of the Jenkins (EBS Volume)
+
+=> Triggers - Job Scheduling
+This defines how to trigger the job
+
+To trigger the job in an automated way, we will use CRON expression
+Everyday @10.00PM i want to trigger the job
+
+* * * * * -----> Every minute the job will get built
+H * * * * -----> Every hour the job will get built
+H/2 * * * * ----> Every 30 minutes the job will get built
+
+Build Periodically		- at regular intervals time, the job will get built automatically
+
+Limitation: Build Periodically will build the job at regular intervals as per the configuration, but it wont bother about the changes made in the repo.
+The problem with this option is, the underlying storage will get over utilized 
+
+POLL SCM - when a commit happens in the repo, only then the job is built but the job will be built only at the configured time stamp
+* * * * *
+on 22 January, 11.00 AM
+
+GitHub Hook Trigger - the job will get built immediately after the commit is made in the repo
+Generate webhook for the repo
+
+Trigger Job Remotely
+when you dont have direct access to Jenkins UI, we can use an URL to trigger the job
+
+TL ----> To build the job
+TL is not available
+
+http://65.0.205.16:8080/job/job02/build?token=kastro
+
+JENKINS_URL/job/job02/build?token=TOKEN_NAME
+
+Project 1 - Freestyle Project - Build and Deploy in an automated way using Jenkins
+Phase 1: Deploy to Tomcat
+
+Repo URL: https://github.com/KastroVKiran/tomcat-app-kastro.git
+
+  <role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui"/>
+  <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
+
+
+Phase 2: Storing the Artifact in S3 Bucket
+S3 - store files (objects)
+S3 - simple storage service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
