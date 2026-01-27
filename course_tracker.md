@@ -53,7 +53,7 @@ A comprehensive 35-day DevOps training program covering essential tools and prac
 ### **Phase 5: Docker (Working with Containers)** 
 | Date | Module | Topics Covered | Status |
 |------|--------|----------------|--------|
-| **27 Jan 2026** | Docker | Yet to discuss | ⏳ Pending |
+| **27 Jan 2026** | Docker | Introduction, Understanding Containerization, Docker Workflow, Understanding Basic Docker Commands, Dockerfile - FROM, RUN, CMD | ✅ Completed |
 | **29 Jan 2026** | Docker | Yet to discuss | ⏳ Pending |
 | **30 Jan 2026** | Docker | Yet to discuss | ⏳ Pending |
 | **02 Feb 2026** | Docker | Yet to discuss | ⏳ Pending |
