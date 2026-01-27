@@ -1,0 +1,126 @@
+Module 5: Docker | Day 16 | 27-01-2025
+============================================================================================================
+Docker Installation;
+sudo dnf update -y
+sudo dnf install -y docker
+sudo systemctl enable --now docker.service
+sudo systemctl status docker.service
+docker -version
+
+to exit from the container;
+control+p+q (or) control + d
+
+docker images
+   22  docker run -it --name al-container amazonlinux
+   23  docker ps
+   24  docker images
+   25  docker stop 1b3df4ef99eb
+   26  docker ps
+   27  docker ps -a
+   28  docker start al-container
+   29  docker ps
+   30  docker ps
+   31  docker images
+   32  docker run -it -d --name u-container ubuntu
+   33  docker ps
+   34  docker attach a8b90889d898
+   35  docker ps
+   36  docker exec -it u-container -- /bin/bash
+   37  docker exec -it u-container /bin/bash
+   38  clear
+   39  docker p
+   40  docker ps
+   41  docker pause 1b3df4ef99eb
+   42  docker ps
+   43  docker exec -it al-container /bin/bash
+   44  docker unpause al-container
+   45  docker ps
+   46  docker ps
+   47  docker kill u-container
+   48  docker ps
+   49  docker ps -a
+   50  docker stop al-container
+   51  docker ps -a
+   52  docker start u-container
+   53  docker ps
+   54  docker ps -a
+   55  docker rm u-container
+   56  docker rm al-container
+   57  docker ps -a
+   58  docker images
+   59  docker rmi ubuntu
+   60  docker rmi amazonlinux
+   61  docker images
+   62  clear
+   63  docker ps
+   64  docker rm u-container
+   65  docker rm -f u-container
+   66  docker ps
+   67  docker ps -a
+   68  docker run -it -d --name u-container ubuntu
+   69  docker run -it -d --name al-container amazonlinux
+   70  docker images
+   71  docker ps
+   72  docker top u-container
+   73  docker stats u-container
+   74  docker ps
+   75  docker rename u-container ubuntu-container
+   76  docker ps
+   77  docker images
+   78  docker system prune -a
+   79  docker ps
+   80  docker kill $(docker ps -aq)
+   81  docker ps
+   82  docker ps -a
+   83  docker rm $(docker ps -aq)
+   84  docker ps -a
+   85  docker ps
+   86  docker rmi -f $(docker images -q)
+   87  docker images
+
+Dockerfile
+Dockerfile will have instructions to build a docker image
+Dockerfile uses DSL (Domain Specific Language) key-words
+All the instructions in the Dockerfile will be processed from top to bottom
+Any Dockerfile keyword must be written in CAPITAL letters
+Every Dockerfile keyword must be written in new line
+
+FROM
+It indicates the base image to run our application
+It is used to represent the base image to create our own image
+We can write multiple FROM instructions in a single Dockerfile
+FROM <ImageName>
+
+RUN
+It is used to execute the commands - the commands gets executes while creating the image
+We can write multiple RUN instructions in a single Dockerfile
+RUN <Command>
+
+CMD
+It is also used to execute the commands - the commands gets executes while creating the container
+We can write multiple CMD instructions in a single Dockerfile, but the last CMD instruction in the Dockerfile will only be processed
+CMD <Command>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
