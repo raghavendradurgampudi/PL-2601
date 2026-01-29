@@ -1,0 +1,130 @@
+Module 5: Docker | Day 17 | 29-01-2025
+============================================================================================================
+Docker Installation;
+sudo dnf update -y
+sudo dnf install -y docker
+sudo systemctl enable --now docker.service
+sudo systemctl status docker.service
+docker -version
+
+Dockerfile (Continuation to Day 16)
+
+4. COPY
+It is used to copy the files/directories from one location to another location
+COPY <SourceLocation> <DestinationLocation>
+
+5. ADD
+It is also used to copy the files from source location to destination location
+ADD can download the files from remote location
+
+6. WORKDIR
+It is used to go inside a specific directory as soon as we login to the container
+Whatever instructions that we write after WORKDIR command, all those instructions will be processed in the given working directory
+WORKDIR <Path>
+
+7. LABEL
+It is used to assign metadata for our image
+Labels are written in the form of key-value pairs
+
+8. ENV
+It is used to set the environment variables inside the image and container
+These environment variables can be used by the application and they can also be used to configure tools
+The environment variables will run inside the container
+ENV <Key> <Value>
+
+9. EXPOSE
+It is used to expose the application running inside the container
+
+10. USER
+By default, all the containers and images will run as ROOT user
+To set an username for an image or for a container, then we will use USER
+Wjhatever commands that we write after USER keyword, all those commands will get executed as a custom user
+
+Note: CMD instructions will run only once, once the command is executed the container automatically comes into the exited stated
+
+11. VOLUME
+It is used to store data inside the container - Docker Volumes
+If you want to store the data permanently inside a container, we will use Docker Volumes
+
+12. MAINTAINER
+MAINTAINER <author> <kastro>
+
+Project 1: HTML Application
+https://github.com/KastroVKiran/ECR-ECS-Project.git
+
+Dockerfile	-----> Docker Image	-----> Docker Container	-----> Users can access the app [PublicIP:<PortNumber>]
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install apache2 -y
+RUN apt install apache2-utils -y
+COPY ECR-ECS-Project/ /var/www/html
+RUN service apache2 restart
+EXPOSE 80
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+"/usr/sbin/apachectl" is the program that runs apache
+
+==========
+NGINX 	----> /usr/share/nginx/html
+
+FROM nginx:latest
+COPY . /usr/share/nginx/html
+EXPOSE 80
+
+FROM apache2:latest
+COPY . /usr/share/nginx/html
+EXPOSE 80
+
+Port Mapping;
+Container Port	- it is the port number where app is running inside the container
+Host Port	- it is the port where users can access the applications running inside a container
+
+Ex: Host Port:Container Port
+
+==> Docker Volumes
+Volume means storage
+It just a directory inside a container
+Whenever we create container and store the data in the container, by default all this data will be stored in the host machine
+We can attach a volume to container
+We can share a volume with multiple container
+
+Case 1: Create volume using Dockerfile
+
+Case 2:  Sharing the volume between containers
+
+Case 3: Create volume using Command inside the container
+
+Case 4: Create volume using Command inside the host machine (EC2 Instance)
+
+Case 5: Create EBS Volume in AWS Cloud and Attach to a Container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
