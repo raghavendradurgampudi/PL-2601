@@ -1,7 +1,6 @@
 # 🚀 DevOps Mastery Journey
 
 ![Learning Status](https://img.shields.io/badge/Status-Active%20Learning-success?style=for-the-badge)
-![Last Updated](https://img.shields.io/badge/Updated-9%20Jan%202026-informational?style=for-the-badge)
 
 ## 🎯 Learning Path Overview
 A comprehensive 35-day DevOps training program covering essential tools and practices for modern software delivery.
