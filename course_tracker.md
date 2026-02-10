@@ -65,4 +65,6 @@ A comprehensive 35-day DevOps training program covering essential tools and prac
 | **05 Feb 2026** | Kubernetes | Creation of EKS Cluster, Basic Commands, Pods - Types | ✅ Completed |
 | **06 Feb 2026** | Kubernetes | Pods - Types, Services - Types, Namespaces | ✅ Completed |
 | **09 Feb 2026** | Kubernetes | Kubernetes Controllers, Deployments | ✅ Completed |
-| **10 Feb 2026** | Kubernetes | Storage in Kubernetes - PV, PVC | ⏳ Pending |
+| **10 Feb 2026** | Kubernetes | Storage in Kubernetes - PV, PVC, Resource Quota, HPA | ✅ Completed |
+| **11 Feb 2026** | Kubernetes | Yet to Discuss | ⏳ Pending |
+| **12 Feb 2026** | Kubernetes | Yet to Discuss | ⏳ Pending |
