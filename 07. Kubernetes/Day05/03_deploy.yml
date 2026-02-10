@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ebs-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-ebs
+  template:
+    metadata:
+      labels:
+        app: nginx-ebs
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          volumeMounts:
+            - name: ebs-storage
+              mountPath: /usr/share/nginx/html
+      
+      volumes:
+        - name: ebs-storage #name of the volume to mount
+          persistentVolumeClaim:
+            claimName: ebs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ebs-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-ebs
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

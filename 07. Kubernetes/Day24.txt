@@ -1,0 +1,248 @@
+Module 6: Kubernetes | Day 24 | 10-02-2026
+============================================================================================================
+#To delete the cluster
+eksctl delete cluster --name kastro-cluster --region ap-south-1
+
+=> nginx-no-volume-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-no-volume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest  
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-no-volume-svc
+spec:
+  type: NodePort
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30001
+
+By default in K8s, the data is not persistent (it is not long lived)
+To manage the storage aspect for a Kubernetes pod we will use PV & PVC concept
+PV - Persistent Volume
+PVC - Persistent Volume Claim
+
+Stateless Apps - if i delete a pod and if the data inside the pod is lost, such kind of apps are known as stateless apps, because data is stored locally inside the pod
+
+Stateful Apps - if i delete a pod and if the data inside the pod is available, it is called as Stateful Apps. Here we are storing data in the EBS Volume
+
+K8s Volumes: are used to persist the data inside the pod
+
+Provisioning of Volumes;
+Static Provisioning		- manual work (EBS Volumes are availability zone specific)
+Dynamic Provisioning	- automated
+
+Dynamic Provisioning of volumes is possible by requesting the storage using pvc.yml
+K8s will understand the request made by the pvc.yml file, by using another yml file which is known as sc.yml (storage class)
+
+In Static Provisioning, an EBS Volume has to be created before the request is made
+
+A SC defines how a volume should be created dynamically
+
+PVC -----> refers to Storage Class -----> AWS Cloud for the EBS Volume ----> EBS Volume will be attached to the deployment pod
+
+Reclaim Policy;
+RC determines what happens to the PV once the PVC is deleted.
+Retain	- keeps the PV  even after PVC is deleted
+Delete	- deletes the PV once after PVC is deleted
+Recycle	(deprecated)
+
+Access Modes;
+It defines how the volume can be mounted to one or more pods
+ReadWriteOnce (RWO)	- one pod (which is there on a node) can read-write the data
+ReadOnlyMany (ROX)	- multiple pods can read the data, but none of them can write
+ReadWriteMany (RWX)	- multiple pods can read the data, and will be able to write the data as well
+
+By default, AWS EBS supports only RWO
+If you want multiple pods, to read and write the data in a volume, we will use a service in AWS which is known as EFS (Elastic File System). This EFS is going to work on protocol known as NFS (Network File System)
+
+Can we expand the existing volume?
+Yes. In the yml file, we will write "allowVolumeExpansion: true"
+
+volumeBindingMode: Immediate or WaitForFirstConsumer
+
+CSI - Container Storage Interface
+
+=> Dynamic provisioning with EBS CSI
+Pre-requisites;
+=> IAM Requirement for Worker Nodes:
+Attach AmazonEBSCSIDriverPolicy to your worker node IAM role.
+This allows Kubernetes to create, attach, detach, and delete EBS volumes dynamically.
+
+=> eksctl doesn’t know which AWS region to use. You have to explicitly set it
+eksctl utils associate-iam-oidc-provider --cluster kastro-cluster --region ap-south-1 --approve
+This allows Kubernetes service accounts to assume IAM roles (needed for CSI driver).
+
+=> Check if the EBS CSI driver pods are running:
+kubectl get pods -n kube-system | grep ebs-csi
+
+You should see pods like ebs-csi-controller-... and ebs-csi-node-... in Running state.
+If nothing appears, you need to install it.
+
+=> Install EBS CSI Driver
+Download Helm installation script (Here I will use HELM to do this)
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version
+
+Add the Helm repo
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+
+helm repo update
+# This ensures Helm fetches the latest charts from the repo.
+
+helm repo list
+#You should see something like below;
+NAME                     URL
+aws-ebs-csi-driver       https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+
+Install EBS CSI driver
+helm install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \
+    --namespace kube-system \
+    --create-namespace \
+    --set image.repository=602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver
+
+Verify installation
+kubectl get pods -n kube-system | grep ebs-csi
+#You should see controller and node pods in Running state.
+
+
+Lets check the volumes attached to pods;
+kubectl get pod -o custom-columns=NAME:.metadata.name,STATUS:.status.phase,VOLUME:.spec.volumes[*].persistentVolumeClaim.claimName
+
+===
+Resource Quota & Limit Ranges
+A RQ in K8s limits the total amount of compute resources such as CPU, Memory, Object Count... that can be consumed by the pods within a namespace
+
+Requests	----> The minimum amount of a resource (CPU/Memory) that the container is guaranteed to get
+Limits		----> The maximum amount of a resource the container is allowed to use
+
+Requests should always be lessthan the limit or requests can be equal to limit
+By default, K8s pods will run with no limitations
+The default limit is 0
+
+CPU is measured in terms of cores
+	1 CPU = 1000 m
+	200 m = 0.2 CPUs
+	500 m = 0.5 CPUs
+	2000 m = 2 CPUs
+Memory is measured in terms of GB/MB
+
+
+=> Autoscaling in K8s
+Based on the number of requests coming to the app (pods), the pod count should automatically increase and decrease.
+real-time metrics: CPU & Memory
+CPU based autoscaling
+Memory based autoscaling
+
+If CPU % goes beyond X%, i want the pods to increase
+If CPU % comes lessthan Y%, i want the pods to decrease
+
+Types of Autoscaling;
+1. HPA (Horizontal Pod Autoscaling)	- autoscale the pods
+2. VPA (Vertical Pod Autoscaling)	- autoscale the pods (DEPRECATED & OUTDATED)
+3. CAA (Cluster Autoscaler)	- autoscales the nodes
+
+To monitor the CPU and Memory utilization of pods, we need to have metrics server
+by default when working with cloud specific clusters, metrics server will be there
+
+vi cpu-php-apache.yaml ---->
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  selector:
+    matchLabels:
+      run: php-apache
+  template:
+    metadata:
+      labels:
+        run: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: registry.k8s.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-apache
+  labels:
+    run: php-apache
+spec:
+  ports:
+  - port: 80
+  selector:
+    run: php-apache
+
+kubectl apply -f php-apache.yaml
+
+kubectl describe svc php-apache
+kubectl describe deployment php-apache
+
+Step 3: Enable Horizontal Pod Autoscaler (HPA)
+Create HPA with CPU threshold of 50% and scaling between 1 and 10 pods:
+
+vi cpu-hpa.yml ----> (CPU Based Scaling)
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 10
+
+If average pod CPU utilization is execceding beyond 10% then HPA starts scaling
+
+Step 4: Generate Load
+kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+
+Projects:
+Ecommerce App
+https://www.youtube.com/watch?v=l-5JQcI_CH0&list=PLs-PsDpuAuTfG3gFR5DnVD58kT7JBO97x&index=3&pp=iAQB
+
+BMS App
+https://www.youtube.com/watch?v=hBGVwa8MY4A&list=PLs-PsDpuAuTfG3gFR5DnVD58kT7JBO97x&index=6&t=3402s&pp=iAQB
+
+Zomato App
+https://www.youtube.com/watch?v=GyoI6-I68aQ&list=PLs-PsDpuAuTfG3gFR5DnVD58kT7JBO97x&index=9&t=2s&pp=iAQB0gcJCZQKAYcqIYzv
