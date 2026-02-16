@@ -1,0 +1,22 @@
+Module 7: Ansible | Day 27 | 16-02-2026
+============================================================================================================
+
+Ansible 
+Ansible is configuration management tool
+
+(Host) Inventory file
+host information
+ansible.cfg
+
+inventory file	---- all the worker nodes info (Private IP)
+ansible.cfg		---- it contains info about the inventory file
+
+
+
+
+
+
+
+
+
+
