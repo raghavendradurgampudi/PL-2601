@@ -1,0 +1,13 @@
+---
+- name: playbook to install apache
+  hosts: all
+  become: yes
+  tasks:
+    - name: installation of apache
+      yum:
+        name: httpd
+        state: present
+    - name: printing a message
+      debug:  #name of the module to print a message
+        msg: "Apache is successfully installed"
+...

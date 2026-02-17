@@ -1,0 +1,44 @@
+Module 7: Ansible | Day 28 | 17-02-2026
+============================================================================================================
+Ansible Installation on Master Node
+sudo dnf install python3-pip -y
+pip install ansible
+ansible --version
+
+Setting up the host inventory file
+Note: By default, in the latest versions we will not have host inventory file in /etc/ansible/hosts path. We need to explicitly create this path and also the inventory file
+
+Step 1 — Create /etc/ansible/ directory
+sudo mkdir -p /etc/ansible
+
+Step 2 — Create a config file
+sudo nano /etc/ansible/ansible.cfg
+
+Paste this minimal configuration:
+[defaults]
+inventory=/etc/ansible/hosts
+host_key_checking=False
+
+Save & exit.
+
+Step 3 — Create the hosts inventory file
+sudo nano /etc/ansible/hosts
+
+Add your hosts:
+[dev-servers]
+your-ec2-private-ip-here
+
+[test-servers]
+your-ec2-private-ip-here
+
+Save & exit.
+
+
+
+
+
+
+
+
+
+

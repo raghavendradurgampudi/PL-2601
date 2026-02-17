@@ -1,0 +1,7 @@
+---
+- name: playbook to verify the worker nodes
+  hosts: all
+  tasks:
+    - name: testing the connectivity
+      ping:
+...

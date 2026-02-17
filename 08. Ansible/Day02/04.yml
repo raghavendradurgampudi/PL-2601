@@ -1,0 +1,18 @@
+---
+- name: installation of different packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: installing git
+      yum:
+        name: git
+        state: present
+    - name: installing docker
+      yum:
+        name: docker
+        state: present
+    - name: starting docker
+      service:
+        name: docker
+        state: started
+...
