@@ -1,0 +1,12 @@
+- name: creation of users and copying the files
+  hosts: all
+  become: yes
+  tasks:
+    - name: creation of users
+      user:
+        name: kastro
+        state: present
+    - name: copying the files
+      copy:
+        src: ansible.java
+        dest: /home/ec2-user

@@ -1,0 +1,23 @@
+- name: installation of nginx
+  hosts: all
+  become: yes
+  tasks:
+    - name: installation of nginx
+      yum:
+        name: nginx
+        state: present
+    - name: starting of nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes  #it is given because i want nginx to be autostarted
+    - name: deployment of custom html page
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+    - name: restarting nginx
+      service:
+        name: nginx
+        state: restarted
+
+    

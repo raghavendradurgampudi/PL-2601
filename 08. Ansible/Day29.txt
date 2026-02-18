@@ -1,0 +1,80 @@
+Module 7: Ansible | Day 29 | 18-02-2026
+============================================================================================================
+COPY Module
+
+DEBUG Module
+
+SERVICE Module
+
+USER Module
+
+SETUP Module - it is used to show the system info
+ansible all -m setup
+ansible all -m setup | grep -i cpu
+ansible all -m setup | grep -i mem
+ansible all -m setup | grep -i family
+
+ANSIBLE TAGS:
+10 tasks ---- i want to execute only 2 tasks
+for every task we will write tags
+when we want to run a specific task, use the tag defined for the task to run the playbook
+
+ANSIBLE VARIABLES:
+Types of variables;
+Static variable		- defined inside the playbook
+Dynamic variable	- defined while running the playbook
+
+ANSIBLE LOOPS:
+Loops are used to reduce the number of lines of code in the playbook. 
+Simplify the writing of playbook
+
+with_items
+loop
+
+WRITING ADHOC COMMANDS IN THE PLAYBOOK
+
+NOTIFY & HANDLERS
+task1: install git
+task2: install maven
+task3: git version
+task4: install docker
+task5: check maven version
+task6: install nginx
+task7: check docker version
+
+WHEN Module
+cluster - group of servers
+homogenous machines	- servers with same OS and flavour
+heterogenous machines	- servers with different OS and flavour
+
+5 Linux + 5 Debian
+
+task1: yum install git -y	- successful execution on Linux servers, task2 gets failed
+task2: apt install git -y		- successful execution on Ubuntu servers, task1 gets failed
+
+ANSIBLE VAULT
+Is used to secure the playbooks by encrypting
+
+ANSIBLE GALAXY
+
+LOOKUP Module
+It is used to read the file using playbook
+
+ANSIBLE TOWER IS THE UI FOR ANSIBLE
+PORTRAINER IS THE UI FOR DOCKER
+
+ANSIBLE STRATEGIES
+It is a method of running the tasks inside the playbook
+LINEAR	- default strategy
+FREE
+BATCH
+SEQUENCE
+ROLLING
+
+
+
+
+
+
+
+

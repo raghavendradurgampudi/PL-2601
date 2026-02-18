@@ -1,0 +1,14 @@
+- hosts: all
+  vars:
+    a: git
+    b: maven
+    c: docker
+  tasks:
+    - name: installation of git
+      yum: name={{a}} state=present
+    - name: installation of maven
+      yum: name={{b}} state=present
+    - name: installation of docker
+      yum: name={{c}} state=present
+    - name: installation of additional packages
+      yum: name={{d}} state=present

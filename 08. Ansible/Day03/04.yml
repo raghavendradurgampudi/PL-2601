@@ -1,0 +1,20 @@
+- name: tags playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: installation of git
+      yum:
+        name: git
+        state: present
+      tags: git
+
+    - name: installation of docker
+      yum:
+        name: docker
+        state: present
+      tags: docker
+    - name: starting of docker
+      service:
+        name: docker
+        state: started
+      tags: start-docker

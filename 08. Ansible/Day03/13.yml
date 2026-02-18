@@ -1,0 +1,7 @@
+- name: playbook using lookup
+  hosts: all
+  vars:
+    creds: "{{lookup('file','/home/ec2-user/creds.text')}}"
+  tasks:
+    - debug:
+        msg: the crendentials available in the file are {{creds}}
