@@ -76,11 +76,12 @@ A comprehensive 35-day DevOps training program covering essential tools and prac
 | **16 Feb 2026** | Ansible | Ansible Introduction | ✅ Completed |
 | **17 Feb 2026** | Ansible | Setting up Ansible Master & Workers, Working with Ansible: Adhoc Commands, Modules, Playbooks | ✅ Completed |
 | **18 Feb 2026** | Ansible | Ansible Concepts | ✅ Completed |
-| **19 Feb 2026** | Ansible | Yet to Discuss | ⏳ Pending |
+| **19 Feb 2026** | Ansible | Ansible Roles | ✅ Completed |
 
 ### **Phase 8: Terraform (Infrastructure Automation)** 
 | Date | Module | Topics Covered | Status |
 |------|--------|----------------|--------|
+| **19 Feb 2026** | Terraform | Introduction, IaaC Tools, Terraform as IaaC Tool, Basics of Terraform, Commands, Creation Basic EC2 Resource, Statefile, Lockfile | ✅ Completed |
 | **20 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
 | **23 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
 | **24 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
