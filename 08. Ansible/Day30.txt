@@ -1,0 +1,123 @@
+Module 7: Ansible | Day 30 | 19-02-2026
+============================================================================================================
+
+Ansible Installation on Master Node
+sudo dnf install python3-pip -y
+pip install ansible
+ansible --version
+
+Setting up the host inventory file
+Note: By default, in the latest versions we will not have host inventory file in /etc/ansible/hosts path. We need to explicitly create this path and also the inventory file
+
+Step 1 — Create /etc/ansible/ directory
+sudo mkdir -p /etc/ansible
+
+Step 2 — Create a config file
+sudo nano /etc/ansible/ansible.cfg
+
+Paste this minimal configuration:
+[defaults]
+inventory=/etc/ansible/hosts
+host_key_checking=False
+
+Save & exit.
+
+Step 3 — Create the hosts inventory file
+sudo nano /etc/ansible/hosts
+
+Add your hosts:
+[dev-servers]
+your-ec2-private-ip-here
+
+[test-servers]
+your-ec2-private-ip-here
+
+Save & exit.
+
+=> Ansible Roles
+In Ansible Roles, we will write separate playbooks for each module and then we can call whichever playbook we want to execute
+Ansible roles are used o divide the playbook in to a directory structure
+
+Module 8: Terraform | Day 30 | 19-02-2026
+============================================================================================================
+Terraform is used to automate the infrastructure creation
+IaaC Tools: Terraform, Pulimi, Open Tofu
+
+Cloud Specific Services:
+	AWS - Cloud Formation
+	Google - Deployment Provider
+	Azure - Azure Resource Manager
+
+Terraform was launched in the year 2014
+Invented by Mitchel Hashimoto
+Developer by Hashicorp Company
+Developer by using Go Programming Language
+HCL - Hashicorp Configuration Language
+Terraform is free and open source software
+
+All the terraform files will have an extension as ".tf"
+
+terraform.io
+
+In the directory structure of terraform, we have some important files
+provider.tf		- we will configure provider info - in which cloud and in which region
+main.tf			- contains the core info about the resource creation
+variables.tf		- define the variables
+terraform.tfvars	- define the values for the variables
+outputs.tf		- output info
+
+backend.tf
+
+Terraform Commands;
+terraform init		-to initialize terraform - it will download all the provider plugins
+terraform validate	- to validate the syntax of the .tf files
+terraform fmt		- to arrange the terraform code in a decent structure 
+terraform plan		- it will show the resource info (it wont actually create the resource)
+terraform apply		- to create the actual resources
+terraform destroy		- to delete the resource
+
+Terraform installation
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo dnf -y install terraform
+terraform --version
+
+Core structure of terraform files;
+blocks
+labels
+arguments
+
+provider block
+resource block
+output block
+
+any block with start with { and will end with }
+for each block we will have block label
+
+{
+inside the block, we will write arguments - key-value pairs
+}
+
+identifier ----> _
+if you want to combine two words, we will combine using _
+instance type	 ----> instance_type
+
+When we initialize terraform, the terraform.lock.hcl file will get created.
+This file consists provider version info
+
+Statefile gets created usually after executing terraform plan / terraform apply (terraform.tfstate)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

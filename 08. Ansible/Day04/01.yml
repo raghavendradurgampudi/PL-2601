@@ -1,0 +1,38 @@
+- name: installation of packages
+  yum:
+    name: "{{item}}"
+    state: present
+  loop:
+    - git
+    - maven
+    - docker
+    - tree
+
+
+- name: creation of users
+  user:
+    name: "{{item}}"
+    state: present
+  loop:
+    - kastro
+    - kiran
+    - hari
+    - krishna
+
+- name: installation of webservers
+  yum:  
+    name: httpd
+    state: present
+
+- name: starting of webserver
+  service:
+    name: httpd
+    state: started
+
+
+- name: master playbook for ansible roles
+  hosts: all
+  become: yes
+  roles:
+    - pkgs
+    
