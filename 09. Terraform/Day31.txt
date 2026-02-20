@@ -1,0 +1,45 @@
+Module 8: Terraform | Day 31 | 20-02-2026
+============================================================================================================
+Terraform installation
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo dnf -y install terraform
+terraform --version
+
+terraform.tfstate will have the resource info which is created using terraform
+
+Local State File
+	- wherever we are terraform commands, in that location state file gets created
+Remote State File
+	- for the security purposes we will store the state file in a secure location (S3 Buckets)
+
+Case 1: Created resource using only AMI & Instance Type
+
+Case 2: Created resource using only AMI & Instance Type & Name
+
+Case 3: Create resource by using .pem (existing file) & New SG
+
+Task 1: Create a key-pair
+Task 2: Create a SG and open port number 22, 8080, 9000 as inbound rules. For outbound rules, open All Traffic (any specific port)
+			ingress
+			egress
+
+Case 4: Creating required number of instances
+			"count"
+
+Case 5: Give the names dynamically to the servers
+
+Case 6: Attach the existing resource (SG)
+			"data"
+
+Case 7: Updating the resources (t2.micro ----> t2.medium)
+
+Case 8: using for_each
+
+
+
+
+
+
+
+
+
