@@ -82,7 +82,7 @@ A comprehensive 35-day DevOps training program covering essential tools and prac
 | Date | Module | Topics Covered | Status |
 |------|--------|----------------|--------|
 | **19 Feb 2026** | Terraform | Introduction, IaaC Tools, Terraform as IaaC Tool, Basics of Terraform, Commands, Creation Basic EC2 Resource, Statefile, Lockfile | ✅ Completed |
-| **20 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
+| **20 Feb 2026** | Terraform | Scenarious of Creating Various Resources | ✅ Completed |
 | **23 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
 | **24 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
 | **25 Feb 2026** | Terraform | Yet to Discuss | ⏳ Pending |
