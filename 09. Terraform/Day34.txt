@@ -1,0 +1,111 @@
+Module 8: Terraform | Day 34 | 25-02-2026
+============================================================================================================
+Terraform installation
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo dnf -y install terraform
+terraform --version
+
+=> Terraform Modules
+EC2, VPC, S3 Bucket, EKS Cluster....
+A folder containing terraform configuration files (.tf) that are grouped together to perform a specific task
+
+Every terraform project is a module
+Root Module	- the main project
+Child Module	- any module called inside it
+
+=> Terraform Provisioners
+Terraform can create the resources in the cloud
+But terraform cannot install packages, copy the files, run shell scripts, update the OS packages
+
+Using Terraform Provisioners we can install packages, copy the files, run shell scripts, update the OS packages
+Provisioners are used to run commands or scripts after a resource is created by Terraform
+
+Types of Provisioners;
+file				- copy the file						inside the server
+remote-exec		- run command(s) inside the server		inside the server
+local-exec		- run command(s)					inside the laptop
+
+=> Terraform Refresh
+reads the real infra from the cloud provider and updates the terraform state file to match the existing infra
+It is used to sync the state file after manual changes are made on existing infra
+
+=> Meta Arguments
+these are special arguments that you can use with resources, modules, and other blocks to control how they behave
+
+count
+for_each
+depends_on - ensures that one resource is created or updated only after another resource has been created successfully
+provider
+lifecyle
+
+=> Terraform Import
+Terraform import can only do one task at a time
+
+terraformer (Task) - it is used to bring multiple resources at the same time to the terraform state file
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Total Days: 34 (~ 70 hours)
+
+Tools:
+Devops Overview
+Linux Fundamentals
+Shell Scripting (DIY)
+Git and GitHub
+Maven
+Tomcat
+Jenkins
+Nexus
+SonarQube 
+Docker
+Kubernetes
+Monitoring - Prometheus & Grafana
+Ansible
+Terraform
+
+70% - DevOps
+30% - Cloud (AWS / GCP / Azure)
+
+Resume ---> Diverse tools + Experience (>= 4+ years - 20-25 LPA) (>10+ years - 45-50 LPA)
+Relevant Experience ---> DevOps / Cloud
+
+Additional Tools;
+GitHub Actions
+Git Lab
+Bit Bucket
+Open Shift
+DataDog
+OWASP
+Trivy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
